@@ -1,0 +1,17 @@
+body{
+    color: #a7da8c;
+    background-color: #181818;
+    font-size: larger;
+}
+
+div.headless{
+    margin: 5%;
+}
+
+
+a{
+    color:snow;
+}
+a:visited{
+    color:snow;
+}

@@ -1,0 +1,24 @@
+body{
+    color: #a7da8c;
+    background-color: #181818;
+    font-size: xx-large;
+}
+
+div{
+    margin: 5%;
+}
+
+a{
+    color:#181818;
+    text-decoration: none;
+    background-color: steelblue;
+    font-size: larger;
+    padding: 1%;
+}
+
+a:hover{
+    color:#181818;
+    text-decoration: none;
+    background-color: tomato;
+    font-size: larger;
+}

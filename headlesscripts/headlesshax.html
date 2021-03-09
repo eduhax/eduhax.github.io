@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>edu HaxBall</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='headlesshax.css'>
+    <script src='headlesshax.js'></script>
+</head>
+<body>
+    <div class="headless">
+        <h1>NASIL HEADLESS HOST AÇILIR?</h1>
+        <p><b><u>Uzak Masaüstü Bağlantısı</u></b> ile windows işletim sistemli sunucuya bağlanıılır.<br> (<kbd>windows + r</kbd> kısayolunu kullanıp <b><u>mstsc</u></b> yazılarak Uzak Masaüstü Bağlantısı çalıştırılabilir.)</p>
+        <p>Sunucudaki tarayıcıdan (Chrome) <a href="https://html5.haxball.com/headless">https://html5.haxball.com/headless</a> bağlantısını açılıp <kbd>ctrl + shift + c</kbd> kısayoluyla tarayıcı konsolu açılır.</p>
+        <p>Konsolda <b><u>JavaScript context: top</u></b> yapılır. Script kodları konsola yazılıp çalıştırılır.<br>
+            <img src="../img/hconsole.png" alt="headless console" width="549" height="141"><br>
+            Örneğin;<br>
+            <code>
+                var room = HBInit({
+                    roomName: "My room",
+                    maxPlayers: 16,
+                    noPlayer: true // Remove host player (recommended!)
+                });
+                room.setDefaultStadium("Big");
+                room.setScoreLimit(5);
+                room.setTimeLimit(0);
+            </code>
+        </p>
+        <p>Daha sonra oda bağlantısı otomatik olarak oluşturulup ekranda belirecektir.<br>KESİNLİKLE BU TARAYICI SEKMESİNİ KAPATMAYIN! ODA KAPANIR.</p>
+        
+        <a href="eduYenenSahada.js" target="_blank">eduYenenSahada</a>&nbsp;
+        <a href="eduKaos.js" target="_blank">eduKaos</a>
+    </div>
+    
+</body>
+</html>
