@@ -77,7 +77,7 @@ room.onPlayerJoin = function(player) {
     yetki();
     if(oyuncular.length>=16)
 	    room.sendAnnouncement("Boğuluyorum öyleyse varım... ("+ oyuncular.length + "/" + oyuncular.length + ")",null,renkler.turuncu,"normal",0);
-	room.sendAnnouncement("eduhax.github.io",player.id,renkler.altin,"normal",0);
+	room.sendAnnouncement("https://eduhax.github.io",player.id,renkler.altin,"normal",0);
 	console.log(tarih.getHours() + ":" + tarih.getMinutes() + "\n" + player.name + " oyuna katıldı.\n" + player.conn + "\n" + player.auth);
 	
 }

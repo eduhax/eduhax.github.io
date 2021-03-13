@@ -1,5 +1,114 @@
 body{
     background-color: #181818;
     color: white;
-    font-size: xx-large;
 }
+
+
+.tableTakimlar{
+    background-color: #181818;
+    width: 70%;
+}
+
+.tableTakimlar th{
+    background-color: #2e2d2d;
+    border-left: teal;
+}
+
+.tableTakimlar td{
+    border-bottom: teal;
+    border-bottom-style: solid;
+    font-size: larger;
+}
+
+.tableMenu{
+    position: fixed;
+    background-color: #181818;
+}
+
+.tableMenu a:link,a:visited,a:hover,a:active{
+    color: tomato;
+    text-decoration: none;
+    font-size: larger;
+}
+
+.tableGol{
+    right: 1%;
+    position: fixed;
+    background-color: #181818;
+}
+
+.tableFinal{
+    background-color: rgb(25, 39, 39);
+    font-size: larger;
+    border-style: solid;
+    border-color: gold;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.tableFinal td{
+    width: 33.34%;
+}
+
+.tableLower{
+    background-color: rgb(25, 39, 39);
+    font-size: larger;
+    border-style: solid;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-color: #B22222;
+}
+
+.tableLower td{
+    width: 33.34%;
+}
+
+.tableUpper{
+    background-color: rgb(25, 39, 39);
+    font-size: larger;
+    border-style: solid;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-color: #9ACD32;
+}
+
+.tableUpper td{
+    width: 33.34%;
+}
+
+.tableLig{
+    background-color: #181818;
+    font-size: larger;
+    border-style: solid;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-color: #4B0082;
+}
+
+.tableLig td{
+    width: 16.67%;
+}
+
+.tableFikstur{
+    background-color: rgb(25, 39, 39);
+    font-size: larger;
+    border-style: solid;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-color: #8FBC8F;
+}
+
+.tableFikstur td{
+    width: 33.34%;
+}
+
+
+
+
+
+

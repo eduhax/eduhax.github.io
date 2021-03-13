@@ -83,8 +83,7 @@ room.onPlayerJoin = function(player) {
     if(oyuncular.length>=11)
 	    room.sendAnnouncement("Kapasiteye ulaşıldı. ("+ oyuncular.length + "/" + oyuncular.length + ")",null,renkler.turuncu,"normal",0);
 	console.log(tarih.getHours() + ":" + tarih.getMinutes() + "\n" + player.name + " oyuna katıldı.\n" + player.conn + "\n" + player.auth);
-	room.sendAnnouncement("eduhax.github.io",player.id,renkler.altin,"normal",0);
-	room.sendAnnouncement("KURALLAR\n - Takımlara rastgele birer tane kaptan atanır. Takımlar 4v4 (+3 spec) olacak şekilde 'sırayla' seçilir.\n - Spec, kaybeden takımın yerini alır. Yeni takım boştakilerden 1 oyuncu seçer.\n (!!!) Pozisyon sırasında defans yapan takımın kale önüne yakın en fazla 3 oyuncusu bulunabilir (4 DEFANS YASAK).\n - Mevkili oynamaya dikkat edilmeli.",player.id,renkler.altin,"normal",2);
+	room.sendAnnouncement("KURALLAR https://eduhax.github.io \n - Takımlara rastgele birer tane kaptan atanır. Takımlar 4v4 (+3 spec) olacak şekilde 'sırayla' seçilir.\n - Spec, kaybeden takımın yerini alır. Yeni takım boştakilerden 1 oyuncu seçer.\n (!!!) Pozisyon sırasında defans yapan takımın kale önüne yakın en fazla 3 oyuncusu bulunabilir (4 DEFANS YASAK).\n - Mevkili oynamaya dikkat edilmeli.",player.id,renkler.altin,"normal",2);
 }
 
 room.onPlayerLeave = function(player){
