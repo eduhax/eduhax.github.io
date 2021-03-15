@@ -1,26 +1,30 @@
 //https://github.com/haxball/haxball-issues/wiki/Headless-Host
 
 var room = HBInit({
-    roomName: "👂 eduKaoxBall 🐿",
-    maxPlayers: 16,
+    roomName: "👂 eduHax Turnuva 02 🐿",
+    maxPlayers: 20,
     public: false,
     noPlayer: true
 });
 
-room.setDefaultStadium("Classic");
+room.setDefaultStadium("Big");
 room.setTimeLimit(5);
 room.setScoreLimit(5);
 room.setTeamsLock(1);
-room.setTeamColors(1, 45, 0xFFFFFF, [0x730000, 0xBF0000, 0x730000]);
-room.setTeamColors(2, 135, 0xFFFFFF, [0x002147, 0x005FBD, 0x002147]);
-//colors red 45 FFFFFF 730000 BF0000 730000
-//colors blue 135 FFFFFF 002147 005FBD 002147
+room.setTeamColors(1, 45, 0xFFFFFF, [0x6E0050]);
+room.setTeamColors(2, 135, 0xFFFFFF, [0x06606E]);
+//colors red 45 FFFFFF 6E0050
+//colors blue 135 FFFFFF 06606E
 
 var oyuncular;
 var skor;
 var adminler = {
     nick: ["alsaPeran","Efekan","gupsekin","pembiş","luck"], // 
-    pid: ["OUXJy2x6SpNJePWJLm14Kojtsg3R-RAj3fgfyLseIIg","bE8lDKBVGBeTbVigIKbM7bxb-h0hqW4bdmCydloXWcY","UMLedAAr1xpL6QLg07Bhq8nnr42CzbxMX-KWHEgLMq0","gbOli3KBCeT9fSb4u2sAvzgxZ55QtbXf00U5JjdCSJs","7WGF3RuM8TP6ze1CClmKdpxt-u3NGOCYctERswF7Pyo"],
+    pid: ["OUXJy2x6SpNJePWJLm14Kojtsg3R-RAj3fgfyLseIIg", // (https://www.haxball.com/playerauth )
+	"bE8lDKBVGBeTbVigIKbM7bxb-h0hqW4bdmCydloXWcY",
+	"UMLedAAr1xpL6QLg07Bhq8nnr42CzbxMX-KWHEgLMq0",
+	"gbOli3KBCeT9fSb4u2sAvzgxZ55QtbXf00U5JjdCSJs",
+	"7WGF3RuM8TP6ze1CClmKdpxt-u3NGOCYctERswF7Pyo"],
 };
 var renkler = {
     mavi: 0x5689E5,
@@ -75,10 +79,10 @@ room.onPlayerJoin = function(player) {
     oyuncular = room.getPlayerList();
     admin(player);
     yetki();
-    if(oyuncular.length>=16)
-	    room.sendAnnouncement("Boğuluyorum öyleyse varım... ("+ oyuncular.length + "/" + oyuncular.length + ")",null,renkler.turuncu,"normal",0);
+    if(oyuncular.length>=20)
+	    room.sendAnnouncement("Kapasiteye ulaşıldı. ("+ oyuncular.length + "/" + oyuncular.length + ")",null,renkler.turuncu,"normal",0);
 	console.log(tarih.getHours() + ":" + tarih.getMinutes() + "\n" + player.name + " oyuna katıldı.\n" + player.conn + "\n" + player.auth);
-	
+	room.sendAnnouncement("KURALLAR\n - Pozisyon sırasında defans yapan takımın kale önüne yakın en fazla 3 oyuncusu bulunabilir (4 DEFANS YASAK).\n - Mevkinizde oynamaya dikkat edin.\n",player.id,renkler.altin,"normal",2);
 }
 
 room.onPlayerLeave = function(player){

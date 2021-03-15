@@ -6,7 +6,7 @@ body{
 
 .tableTakimlar{
     background-color: #181818;
-    width: 60%;
+    width: 100%;
 }
 
 .tableTakimlar th{
@@ -90,7 +90,19 @@ body{
 }
 
 .tableLig td{
-    width: 16.67%;
+    width: 14.29%;
+}
+
+.tableLig td{
+    width: 10%;
+}
+
+.tableLig .sira{
+    width: 2%;
+}
+
+.tableLig .takimadi{
+    width: 20%;
 }
 
 .tableFikstur{
