@@ -1,7 +1,5 @@
-//https://github.com/haxball/haxball-issues/wiki/Headless-Host
-
 var room = HBInit({
-    roomName: "👂 eduHax KAPTANLI YENEN SAHADA 🐿",
+    roomName: "👂 eduHax KAPTANLI YENEN SAHADA",
     maxPlayers: 11,
     public: false,
     noPlayer: true
@@ -11,43 +9,43 @@ room.setDefaultStadium("Classic");
 room.setTimeLimit(3);
 room.setScoreLimit(5);
 room.setTeamsLock(1);
-room.setTeamColors(1, 45, 0xFFFFFF, [0x6E0050]);
-room.setTeamColors(2, 135, 0xFFFFFF, [0x06606E]);
-//colors red 45 FFFFFF 6E0050
-//colors blue 135 FFFFFF 06606E
+
+room.setTeamColors(1, 60, 0x000000,[0xF4A460]);
+room.setTeamColors(2, 60, 0x000000,[0x9300FF]);
+
+
+//room.setTeamColors(1, 120, 0xCFCFCF, [0x6E0050],[0x5C0043],[0x6E0050]);
+//room.setTeamColors(2, 60, 0xCFCFCF, [0x06606E],[0x304F54],[0x06606E]);
+//colors red 120 CFCFCF 6E0050 5C0043 6E0050
+//colors blue 60 CFCFCF 06606E 304F54 06606E
 
 var oyuncular;
-var skor;
+var tarih;
 var adminler = {
-    nick: ["alsaPeran","Efekan","gupsekin","pembiş","luck"], // 
-    pid: ["OUXJy2x6SpNJePWJLm14Kojtsg3R-RAj3fgfyLseIIg", // (https://www.haxball.com/playerauth )
-	"bE8lDKBVGBeTbVigIKbM7bxb-h0hqW4bdmCydloXWcY",
-	"UMLedAAr1xpL6QLg07Bhq8nnr42CzbxMX-KWHEgLMq0",
-	"gbOli3KBCeT9fSb4u2sAvzgxZ55QtbXf00U5JjdCSJs",
-	"7WGF3RuM8TP6ze1CClmKdpxt-u3NGOCYctERswF7Pyo"],
+    nick: ["alsaPeran","Efekan","gupsekin","luck","Ajora","dodo"],
+    pid: ["OUXJy2x6SpNJePWJLm14Kojtsg3R-RAj3fgfyLseIIg",
+	"jbpwx3B3qf7nVeXVUaH7FxCG3Fu7RD_cN1tK9Fx7laI",
+	"d0XrTda2G2vqWgCzn-X1Ri41QRf4YkxK00ngOt4cbCA",
+	"7WGF3RuM8TP6ze1CClmKdpxt-u3NGOCYctERswF7Pyo",
+	"RiFLM2kYPV9RtH51t05ekr0OPMjvjATjGhWeKmfo1xU",
+	"e3AvL-Ul2AQdyCe9-NIPJcEPYHfnIhwreepfro5Oo6c"]
 };
 var renkler = {
     mavi: 0x5689E5,
     kirmizi: 0xE56E56,
-    altin: 0xDAA520,
-    turuncu: 0xFF4500
-}
-
-function admin(player){
-	oyuncular = room.getPlayerList();
-
-    for(let i=0; i<oyuncular.length; i++)
-    {
-        if(player.auth == adminler.pid[i])
-        {
-            //room.sendAnnouncement(player.name + " giriş yaptı.",null,renkler.altin,"normal",0);
-            room.setPlayerAdmin(player.id,true);
-        }
-    }
+    altin: 0xDAA520
 }
 
 function yetki(player){
 	oyuncular = room.getPlayerList();
+	
+	for(let i=0; i<oyuncular.length; i++)
+    {
+        if(player.auth == adminler.pid[i])
+        {
+            room.setPlayerAdmin(player.id,true);
+        }
+    }
 	
     if(oyuncular.length>0)
 	{
@@ -70,36 +68,21 @@ function yetki(player){
         return;
 }
 
-room.onPlayerAdminChange = function(changedPlayer,byPlayer){
-	if(changedPlayer.name == adminler.nick[0])
-		room.setPlayerAdmin(changedPlayer.id,true);
-}
-
 room.onPlayerJoin = function(player) {
-	let tarih = new Date();
+	tarih = new Date();
     oyuncular = room.getPlayerList();
-    admin(player);
-    yetki();
+    yetki(player);
     if(oyuncular.length>=11)
-	    room.sendAnnouncement("Kapasiteye ulaşıldı. ("+ oyuncular.length + "/" + oyuncular.length + ")",null,renkler.turuncu,"normal",0);
-	console.log(tarih.getHours() + ":" + tarih.getMinutes() + "\n" + player.name + " oyuna katıldı.\n" + player.conn + "\n" + player.auth);
-	room.sendAnnouncement("KURALLAR\n - Takımlara rastgele birer tane kaptan atanır. Takımlar 4v4 (+3 spec) olacak şekilde 'sırayla' seçilir.\n - Spec, kaybeden takımın yerini alır. Yeni takım boştakilerden 1 oyuncu seçer.\n (!!!) Pozisyon sırasında defans yapan takımın kale önüne yakın en fazla 3 oyuncusu bulunabilir (4 DEFANS YASAK).\n - Mevkili oynamaya dikkat edilmeli.",player.id,renkler.altin,"normal",2);
+	    room.sendAnnouncement("Kapasiteye ulaşıldı. ("+ oyuncular.length + "/" + oyuncular.length + ")",null,renkler.altin,"normal",0);
+	
+	console.log(tarih.getDate() + "/" + (tarih.getMonth()+1) + "/" + tarih.getFullYear() + " - " + tarih.getHours() + ":" + tarih.getMinutes() + "\n" + player.name + " oyuna katıldı.\n" + player.conn + "\n" + player.auth + "\n" + oyuncular.length + " kişi oyunda.\n");
+	room.sendAnnouncement("Tüm takımın defans yapması YASAK! En az bir kişi defansın dışında olmalıdır.",player.id,renkler.altin,"normal",2);	
 }
 
 room.onPlayerLeave = function(player){
-	let tarih = new Date();
-    yetki();
-	console.log(tarih.getHours() + ":" + tarih.getMinutes() + "\n" + player.name + " oyundan ayrıldı.\n");
-}
-
-room.onTeamVictory = function(scores){
-    skor = room.getScores();
-    if(skor.red>skor.blue)
-    {
-        room.sendAnnouncement("🔴 " + skor.red + " - " + skor.blue + " 🔵",null,renkler.kirmizi,"normal",0);
-    }
-    if(skor.blue>skor.red)
-    {
-        room.sendAnnouncement("🔴 " + skor.red + " - " + skor.blue + " 🔵",null,renkler.mavi,"normal",0);
-    } 
+	tarih = new Date();
+	oyuncular = room.getPlayerList();
+    yetki(player);
+	
+	console.log(tarih.getDate() + "/" + (tarih.getMonth()+1) + "/" + tarih.getFullYear() + " - " + tarih.getHours() + ":" + tarih.getMinutes() + "\n" + player.name + " oyundan ayrıldı.\n" + oyuncular.length + " kişi kaldı.");
 }
